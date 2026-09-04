@@ -51,11 +51,11 @@
   .work .shot::after{content:"";position:absolute;inset:0;background:#161615;opacity:var(--veil)}
   .work .body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
   .work h3{margin:0 0 10px;font-size:19px;line-height:1.4}
-  .work h3 a{color:var(--acc);text-decoration:none}
+  .work h3 a{color:var(--acc);text-decoration:none;display:inline-block;padding:5px 0}
   .work h3 a:hover{text-decoration:underline}
   .work p{margin:0 0 22px;color:var(--mute);font-size:15px;flex:1}
   .work .go{font-size:15px;font-weight:600;color:var(--acc);text-decoration:none;
-            border-bottom:1px solid currentColor;padding-bottom:1px;align-self:flex-start}
+            border-bottom:1px solid currentColor;padding:7px 0 1px;align-self:flex-start}
 
   /* ── 쓴 글 ────────────────────────────── */
   .band{position:relative;aspect-ratio:24/7;overflow:hidden;border-radius:14px;margin-bottom:34px}
@@ -63,7 +63,7 @@
   .band::after{content:"";position:absolute;inset:0;background:#161615;opacity:var(--veil)}
   h3.sub-sec{font-size:16px;font-weight:700;margin:0 0 14px;letter-spacing:-.01em}
   h3.sub-sec a{font-size:14px;font-weight:400;color:var(--mute);text-decoration:none;margin-left:8px;
-               white-space:nowrap}
+               white-space:nowrap;display:inline-block;padding:8px 0}
   h3.sub-sec a:hover{text-decoration:underline}
   ul.posts + h3.sub-sec{margin-top:52px}
   ul.posts{list-style:none;padding:0;margin:0}
@@ -82,14 +82,17 @@
                  text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;margin-bottom:8px}
 
   @media (max-width:520px){
-    body{word-break:normal;font-size:16px}
+    body{font-size:16px}   /* word-break:normal 금지 — 한글이 어절 중간에서 끊긴다(keep-all 유지) */
     .wide,.narrow{padding:0 20px}
     .hero-img{margin:0 -20px}
     .hero-text h1{font-size:26px}
     .hero-text .lead{font-size:18px}
     main{padding:44px 0 84px}
     main > section{margin-top:64px}
-    ul.posts span{display:block;margin:2px 0 0}
+    /* 폰에서는 줄 전체가 탭 영역이 되게 — 1줄짜리 제목은 19px밖에 안 됐다 */
+    ul.posts li{padding:0}
+    ul.posts a{display:block;padding:11px 0 2px}
+    ul.posts span{display:block;margin:0 0 11px}
   }
 
   @media (min-width:820px){
